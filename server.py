@@ -17,7 +17,8 @@ api = Api(app)
 
 class MovieName(Resource):
     def get(self,movieName):
-        movie = pd.read_csv('moviedata.csv')
+        url = 'https://raw.githubusercontent.com/lala71211/server-py/master/moviedata.csv'
+        movie = pd.read_csv(url,sep=",")
         features = ['keywords', 'cast', 'genres', 'director', 'tagline']
         for feature in features:
             movie[feature] = movie[feature].fillna('')
