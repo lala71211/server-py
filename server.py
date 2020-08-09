@@ -11,7 +11,7 @@ import difflib
 
 app = Flask(__name__)
 api = Api(app)
-
+# pip freeze > requirements.txt
 # db_connect = create_engine('mysql://root:123456@localhost/moive-db')
 # conn = db_connect.connect() #kết nối với cơ sở dữ liệu
 
