@@ -17,8 +17,9 @@ api = Api(app)
 
 class MovieName(Resource):
     def get(self,movieName):
-        url = 'https://raw.githubusercontent.com/lala71211/server-py/master/moviedata.csv'
-        movie = pd.read_csv(url,sep=",")
+        # url = 'https://raw.githubusercontent.com/lala71211/server-py/master/moviedata.csv'
+        # movie = pd.read_csv(url,sep=",")
+        movie = pd.read_csv('moviedata.csv')
         features = ['keywords', 'cast', 'genres', 'director', 'tagline']
         for feature in features:
             movie[feature] = movie[feature].fillna('')
@@ -68,7 +69,7 @@ class MovieName(Resource):
                 arr.append(title_from_index(rec_movie[0]))
                 # arr.append(rec_movie[0])
             i = i+1
-            if i > 6:
+            if i > 10:
                 break
         return arr
 api.add_resource(MovieName, '/moviename/<movieName>') # Route_1
